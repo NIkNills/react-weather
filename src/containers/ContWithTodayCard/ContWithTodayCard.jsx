@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { dayWeek } from "../../constants/constants";
 import TodayWeatherCard from "../../components/TodayWeatherCard/TodayWeatherCard";
 import TodayWeatherCardDescription from "../../components/TodayWeatherCardDescription/TodayWeatherCardDescription";
 import { actionWeather } from "../../store/actions/actionWeather";
@@ -8,19 +9,9 @@ import { actionWeather } from "../../store/actions/actionWeather";
 import "./ContWithTodayCard.scss";
 
 function ContWithTodayCard() {
-  const dayWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
   const dispatch = useDispatch();
 
-  const { weather, success, loading, card_idx } = useSelector(
+  const { weather, success, loading } = useSelector(
     (state) => state.weather
   );
 
@@ -32,28 +23,29 @@ function ContWithTodayCard() {
     <div className="today-cart-container">
       {success && (
         <TodayWeatherCard
-          temp={Math.round(weather[card_idx].temp.max)}
+          temp={Math.round(weather[0].temp.max)}
           day={
-            card_idx === 0
-              ? "Today"
-              : card_idx === 1
-              ? "Tomorrow"
-              : dayWeek[new Date(weather[card_idx].dt * 1000).getDay()].slice(
-                  0,
-                  3
-                )
+            // idx === 0
+            //   ? "Today"
+            //   : idx === 1
+            //   ? "Tomorrow"
+            //   : dayWeek[new Date(weather[0].dt * 1000).getDay()].slice(
+            //       0,
+            //       3
+            //     )
+            'Today'
           }
-          icon={weather[card_idx].weather[0].icon}
+          icon={weather[0].weather[0].icon}
           main={weather.main}
         />
       )}
       {success && (
         <TodayWeatherCardDescription
-          temp={Math.round(weather[card_idx].temp.max)}
-          feels={Math.round(weather[card_idx].feels_like.eve)}
-          pressure={weather[card_idx].pressure}
-          precipitation={weather[card_idx].rain}
-          wind={weather[card_idx].speed}
+          temp={Math.round(weather[0].temp.max)}
+          feels={Math.round(weather[0].feels_like.eve)}
+          pressure={weather[0].pressure}
+          precipitation={weather[0].rain}
+          wind={weather[0].speed}
         />
       )}
     </div>

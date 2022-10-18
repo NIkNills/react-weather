@@ -5,36 +5,13 @@ import {
   actionWeatherCardIdx,
 } from "../../store/actions/actionWeather";
 
+import { dayWeek, months } from "../../constants/constants";
 import WeatherCards from "../../components/WeatherCards/WeatherCards";
 
 import "./ContWithCards.scss";
 
 function ContWithCards() {
-  const dayWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
+  const [nidx, setIdx] = useState(0);
   const dispatch = useDispatch();
 
   const { weather, success, loading } = useSelector((state) => state.weather);
@@ -42,20 +19,6 @@ function ContWithCards() {
   useEffect(() => {
     dispatch(actionWeather.getWeather());
   }, []);
-
-  // const handleCardClick = () => {
-  //   dispatch(actionWeatherCardIdx(1))
-  // }
-
-  const cards = document.querySelectorAll(".weather-card");
-
-  const handleCardClick = () => {
-    cards.forEach((i, idx) => {
-      i.addEventListener("click", () => {
-        dispatch(actionWeatherCardIdx(idx));
-      });
-    });
-  };
 
   return (
     <div className="cards-container">
@@ -66,7 +29,6 @@ function ContWithCards() {
           return (
             <WeatherCards
               key={`${date.getDate()}${months[date.getMonth()]}`}
-              onClick={handleCardClick}
               day={
                 idx === 0
                   ? "Today"

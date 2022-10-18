@@ -5,7 +5,6 @@ const initialState = {
   success: false,
   loading: false,
   error: false,
-  card_idx: 0,
 };
 
 export const reducerWeather = (state = initialState, action) => {
@@ -31,12 +30,6 @@ export const reducerWeather = (state = initialState, action) => {
       return {
         ...state,
         error: true,
-      };
-
-    case actionType.SET_WEATHER_CARD_IDX:
-      return {
-        ...state,
-        card_idx: (state.card_idx = payload),
       };
 
     default:
