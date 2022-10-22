@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { dayWeek } from "../../constants/constants";
@@ -11,13 +11,11 @@ import "./ContWithTodayCard.scss";
 function ContWithTodayCard() {
   const dispatch = useDispatch();
 
-  const { weather, success, loading } = useSelector(
-    (state) => state.weather
-  );
+  const { weather, success, loading, days } = useSelector((state) => state.weather);
 
   useEffect(() => {
-    dispatch(actionWeather.getWeather());
-  }, []);
+    dispatch(actionWeather.getWeather(days));
+  }, [days]);
 
   return (
     <div className="today-cart-container">
@@ -33,7 +31,7 @@ function ContWithTodayCard() {
             //       0,
             //       3
             //     )
-            'Today'
+            "Today"
           }
           icon={weather[0].weather[0].icon}
           main={weather.main}

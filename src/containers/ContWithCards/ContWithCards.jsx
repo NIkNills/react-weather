@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  actionWeather,
-  actionWeatherCardIdx,
-} from "../../store/actions/actionWeather";
-
+import { actionWeather } from "../../store/actions/actionWeather";
 import { dayWeek, months } from "../../constants/constants";
+
 import WeatherCards from "../../components/WeatherCards/WeatherCards";
 
 import "./ContWithCards.scss";
 
 function ContWithCards() {
-  const [nidx, setIdx] = useState(0);
   const dispatch = useDispatch();
 
-  const { weather, success, loading } = useSelector((state) => state.weather);
+  const { weather, success, loading, days } = useSelector(
+    (state) => state.weather
+  );
 
   useEffect(() => {
-    dispatch(actionWeather.getWeather());
-  }, []);
+    dispatch(actionWeather.getWeather(days));
+  }, [days]);
 
   return (
     <div className="cards-container">

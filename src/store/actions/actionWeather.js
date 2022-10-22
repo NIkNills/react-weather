@@ -5,7 +5,6 @@ export const actionType = {
   SET_WEATHER: "SET_WEATHER",
   SET_WEATHER_SUCCESS: "SET_WEATHER_SUCCESS",
   SET_WEATHER_ERROR: "SET_WEATHER_ERROR",
-  SET_WEATHER_CARD_IDX: "SET_WEATHER_CARD_IDX",
 };
 
 export const actionWeather = {
@@ -22,13 +21,10 @@ export const actionWeather = {
         })
       )
       .catch((err) => {
-        console.log(err.response.err);
-        dispatch({ type: actionType.SET_WEATHER_ERROR, payload: err.response });
+        dispatch({
+          type: actionType.SET_WEATHER_ERROR,
+          payload: err.response,
+        });
       });
   },
 };
-
-export const actionWeatherCardIdx = (payload) => ({
-  type: actionType.SET_WEATHER_CARD_IDX,
-  payload,
-});

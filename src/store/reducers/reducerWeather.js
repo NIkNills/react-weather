@@ -5,6 +5,7 @@ const initialState = {
   success: false,
   loading: false,
   error: false,
+  days: 7,
 };
 
 export const reducerWeather = (state = initialState, action) => {
@@ -16,6 +17,7 @@ export const reducerWeather = (state = initialState, action) => {
         weather: [],
         success: false,
         loading: true,
+        days: 7,
       };
 
     case actionType.SET_WEATHER_SUCCESS:
@@ -24,6 +26,7 @@ export const reducerWeather = (state = initialState, action) => {
         weather: payload,
         success: true,
         loading: false,
+        days: 7,
       };
 
     case actionType.SET_WEATHER_ERROR:

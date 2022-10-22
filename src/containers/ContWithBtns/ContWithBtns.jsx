@@ -7,7 +7,7 @@ import { actionWeather } from "../../store/actions/actionWeather";
 import "./ContWithBtns.scss";
 
 function ContWithBtns() {
-  const [days, setDays] = useState(7);
+  const [days, setDays] = useState("");
 
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ function ContWithBtns() {
 
   const handleTenDays = () => {
     setDays(10);
-  }
+  };
 
   return (
     <div className="btns-bar">
