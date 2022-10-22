@@ -11,11 +11,11 @@ import "./ContWithTodayCard.scss";
 function ContWithTodayCard() {
   const dispatch = useDispatch();
 
-  const { weather, success, loading, days } = useSelector((state) => state.weather);
+  const { weather, success, loading, city, days } = useSelector((state) => state.weather);
 
   useEffect(() => {
-    dispatch(actionWeather.getWeather(days));
-  }, [days]);
+    dispatch(actionWeather.getWeather(city, days));
+  }, [city, days]);
 
   return (
     <div className="today-cart-container">
@@ -35,6 +35,7 @@ function ContWithTodayCard() {
           }
           icon={weather[0].weather[0].icon}
           main={weather.main}
+          city={city.slice(0, 1).toUpperCase() + city.slice(1)}
         />
       )}
       {success && (

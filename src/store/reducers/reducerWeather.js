@@ -5,6 +5,7 @@ const initialState = {
   success: false,
   loading: false,
   error: false,
+  city: "mogilev",
   days: 7,
 };
 
@@ -17,6 +18,7 @@ export const reducerWeather = (state = initialState, action) => {
         weather: [],
         success: false,
         loading: true,
+        city: "mogilev",
         days: 7,
       };
 
@@ -26,6 +28,7 @@ export const reducerWeather = (state = initialState, action) => {
         weather: payload,
         success: true,
         loading: false,
+        city: "mogilev",
         days: 7,
       };
 

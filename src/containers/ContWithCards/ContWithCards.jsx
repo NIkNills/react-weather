@@ -10,13 +10,13 @@ import "./ContWithCards.scss";
 function ContWithCards() {
   const dispatch = useDispatch();
 
-  const { weather, success, loading, days } = useSelector(
+  const { weather, success, loading, city, days } = useSelector(
     (state) => state.weather
   );
 
   useEffect(() => {
-    dispatch(actionWeather.getWeather(days));
-  }, [days]);
+    dispatch(actionWeather.getWeather(city, days));
+  }, [city, days]);
 
   return (
     <div className="cards-container">

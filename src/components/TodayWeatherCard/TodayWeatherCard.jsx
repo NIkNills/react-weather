@@ -2,7 +2,7 @@ import React from "react";
 
 import "./TodayWeatherCard.scss";
 
-function TodayWeatherCard({ temp, day, icon, main }) {
+function TodayWeatherCard({ temp, day, icon, main, city }) {
   return (
     <div className="today-weather-card">
       <div className="today-info">
@@ -17,7 +17,7 @@ function TodayWeatherCard({ temp, day, icon, main }) {
         />
       </div>
       <div className="clock">Clock</div>
-      <p className="today__city-name">City name</p>
+      <p className="today__city-name">{city}</p>
     </div>
   );
 }

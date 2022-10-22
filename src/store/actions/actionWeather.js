@@ -8,11 +8,11 @@ export const actionType = {
 };
 
 export const actionWeather = {
-  getWeather: (days) => async (dispatch) => {
+  getWeather: (city, days) => async (dispatch) => {
     dispatch({ type: actionType.SET_WEATHER });
     axios
       .get(
-        `https://pro.openweathermap.org/data/2.5/forecast/climate?q=mogilev&cnt=${days}&APPID=${API_KEY}&units=metric`
+        `https://pro.openweathermap.org/data/2.5/forecast/climate?q=${city}&cnt=${days}&APPID=${API_KEY}&units=metric`
       )
       .then((response) =>
         dispatch({

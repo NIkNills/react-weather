@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../components/Button";
 import { actionWeather } from "../../store/actions/actionWeather";
@@ -7,13 +7,15 @@ import { actionWeather } from "../../store/actions/actionWeather";
 import "./ContWithBtns.scss";
 
 function ContWithBtns() {
-  const [days, setDays] = useState("");
+  const [days, setDays] = useState(7);
+  
+  const { weather, success, loading, city } = useSelector((state) => state.weather);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actionWeather.getWeather(days));
-  }, [days]);
+    dispatch(actionWeather.getWeather(city, days));
+  }, [city, days]);
 
   const handleSevenDays = () => {
     setDays(7);
