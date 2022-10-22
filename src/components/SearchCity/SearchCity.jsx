@@ -1,16 +1,15 @@
 import React from "react";
 
-import './SearchCity.scss'
+import "./SearchCity.scss";
 
-function SearchCity() {
+function SearchCity({ onChange }) {
   return (
-    <div className="search-city">
-      <input
-        className="search-city__input"
-        placeholder="Enter the name of the city"
-        type="text"
-      />
-    </div>
+    <input
+      onChange={onChange}
+      className="search-city__input"
+      placeholder="Enter the name of the city"
+      type="text"
+    />
   );
 }
 
