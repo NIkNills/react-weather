@@ -1,4 +1,5 @@
 import React from "react";
+import Clock from "../Clock/Clock";
 
 import "./TodayWeatherCard.scss";
 
@@ -16,7 +17,7 @@ function TodayWeatherCard({ temp, day, icon, main, city }) {
           alt={main}
         />
       </div>
-      <div className="clock">Clock</div>
+      <Clock />
       <p className="today__city-name">{city}</p>
     </div>
   );
