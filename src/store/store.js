@@ -7,8 +7,7 @@ import {
 import thunk from "redux-thunk";
 import { reducerWeather } from "./reducers/reducerWeather";
 
-const composeEnhancers =
-  window.__REDUX__DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   weather: reducerWeather,
