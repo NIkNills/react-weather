@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionWeather } from "../../store/actions/actionWeather";
 import { dayWeek, months } from "../../constants/constants";
 
 import WeatherCards from "../../components/WeatherCards/WeatherCards";
+import CardSkeleton from "../../components/CardSkeleton";
+import CardsPopup from "../../components/CardsPopup";
 
 import "./ContWithCards.scss";
-import CardSkeleton from "../../components/CardSkeleton/CardSkeleton";
 
 function ContWithCards() {
+  const [popup, setPopup] = useState(false);
+
   const dispatch = useDispatch();
 
   const { weather, success, loading, city, days } = useSelector(
@@ -18,6 +21,11 @@ function ContWithCards() {
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days));
   }, [city, days]);
+
+  const handlePopup = (e) => {
+    console.log();
+    setPopup(!popup);
+  };
 
   return (
     <div className="cards-container">
@@ -31,7 +39,8 @@ function ContWithCards() {
 
             return (
               <WeatherCards
-                key={`${date.getDate()}${months[date.getMonth()]}`}
+                onClick={handlePopup}
+                key={i.dt}
                 day={
                   idx === 0
                     ? "Today"
@@ -51,6 +60,7 @@ function ContWithCards() {
               />
             );
           })}
+      {popup && <CardsPopup />}
     </div>
   );
 }
