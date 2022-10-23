@@ -8,7 +8,7 @@ function Clock() {
 
   useEffect(() => {
     ref.current = setInterval(() => {
-      setTime(new Date().toLocaleTimeString().slice(0, 5));
+      setTime(new Date().toLocaleTimeString());
     }, 1000);
 
     return () => {

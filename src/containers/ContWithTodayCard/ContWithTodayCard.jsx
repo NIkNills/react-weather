@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { dayWeek } from "../../constants/constants";
-import TodayWeatherCard from "../../components/TodayWeatherCard/TodayWeatherCard";
-import TodayWeatherCardDescription from "../../components/TodayWeatherCardDescription/TodayWeatherCardDescription";
 import { actionWeather } from "../../store/actions/actionWeather";
 
+import TodayWeatherCard from "../../components/TodayWeatherCard/TodayWeatherCard";
+import TodayWeatherCardDescription from "../../components/TodayWeatherCardDescription/TodayWeatherCardDescription";
+
 import "./ContWithTodayCard.scss";
+import TodayCardSkeleton from "../../components/TodayCardSkeleton";
+import TodayDescriptionSkeleton from "../../components/TodayDescriptionSkeleton";
 
 function ContWithTodayCard() {
   const dispatch = useDispatch();
 
-  const { weather, success, loading, city, days } = useSelector((state) => state.weather);
+  const { weather, success, loading, city, days } = useSelector(
+    (state) => state.weather
+  );
 
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days));
@@ -19,33 +22,31 @@ function ContWithTodayCard() {
 
   return (
     <div className="today-cart-container">
-      {success && (
-        <TodayWeatherCard
-          temp={Math.round(weather[0].temp.max)}
-          day={
-            // idx === 0
-            //   ? "Today"
-            //   : idx === 1
-            //   ? "Tomorrow"
-            //   : dayWeek[new Date(weather[0].dt * 1000).getDay()].slice(
-            //       0,
-            //       3
-            //     )
-            "Today"
-          }
-          icon={weather[0].weather[0].icon}
-          main={weather.main}
-          city={city.slice(0, 1).toUpperCase() + city.slice(1)}
-        />
+      {loading ? (
+        <TodayCardSkeleton />
+      ) : (
+        success && (
+          <TodayWeatherCard
+            temp={Math.round(weather[0].temp.max)}
+            day={"Today"}
+            icon={weather[0].weather[0].icon}
+            main={weather.main}
+            city={city.slice(0, 1).toUpperCase() + city.slice(1)}
+          />
+        )
       )}
-      {success && (
-        <TodayWeatherCardDescription
-          temp={Math.round(weather[0].temp.max)}
-          feels={Math.round(weather[0].feels_like.eve)}
-          pressure={weather[0].pressure}
-          precipitation={weather[0].rain}
-          wind={weather[0].speed}
-        />
+      {loading ? (
+        <TodayDescriptionSkeleton />
+      ) : (
+        success && (
+          <TodayWeatherCardDescription
+            temp={Math.round(weather[0].temp.max)}
+            feels={Math.round(weather[0].feels_like.eve)}
+            pressure={weather[0].pressure}
+            precipitation={weather[0].rain}
+            wind={weather[0].speed}
+          />
+        )
       )}
     </div>
   );
