@@ -16,7 +16,7 @@ function Clock() {
     };
   }, [time]);
 
-  return <div className="clock">{time}</div>;
+  return <div className="clock">{time.slice(0, 5)}</div>;
 }
 
 export default Clock;
