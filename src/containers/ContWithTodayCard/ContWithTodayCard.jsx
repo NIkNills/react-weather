@@ -16,6 +16,8 @@ function ContWithTodayCard() {
     (state) => state.weather
   );
 
+  const currentCity = localStorage.getItem("currentCity");
+
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days));
   }, [city, days]);
@@ -31,7 +33,7 @@ function ContWithTodayCard() {
             day={"Today"}
             icon={weather[0].weather[0].icon}
             main={weather.main}
-            city={city.slice(0, 1).toUpperCase() + city.slice(1)}
+            city={currentCity.slice(0, 1).toUpperCase() + currentCity.slice(1)}
           />
         )
       )}

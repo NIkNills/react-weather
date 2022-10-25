@@ -5,6 +5,9 @@ export const actionType = {
   SET_WEATHER: "SET_WEATHER",
   SET_WEATHER_SUCCESS: "SET_WEATHER_SUCCESS",
   SET_WEATHER_ERROR: "SET_WEATHER_ERROR",
+  
+  SET_POPUP: "SET_POPUP",
+  SET_POPUP_CLEAR: "SET_POPUP_CLEAR",
 };
 
 export const actionWeather = {
@@ -27,4 +30,8 @@ export const actionWeather = {
         });
       });
   },
+
+  addPopup: (payload) => ({ type: actionType.SET_POPUP, payload }),
+
+  clearPopup: (payload) => ({ type: actionType.SET_POPUP_CLEAR, payload }),
 };

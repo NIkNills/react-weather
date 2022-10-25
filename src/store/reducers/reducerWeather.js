@@ -7,9 +7,11 @@ const initialState = {
   error: false,
   city: "mogilev",
   days: 7,
+  popupArr: [],
 };
 
 export const reducerWeather = (state = initialState, action) => {
+  const uniqArr = [];
   const { payload, type } = action;
   switch (type) {
     case actionType.SET_WEATHER:
@@ -36,6 +38,25 @@ export const reducerWeather = (state = initialState, action) => {
       return {
         ...state,
         error: true,
+      };
+
+    case actionType.SET_POPUP:
+      return {
+        ...state,
+        popupArr: Array.from(new Set([...state.popupArr, payload])).filter(
+          ({ dt }) => {
+            if (!uniqArr.includes(dt)) {
+              uniqArr.push(dt);
+              return dt;
+            }
+          }
+        ),
+      };
+
+      case actionType.SET_POPUP_CLEAR:
+      return {
+        ...state,
+        popupArr: [],
       };
 
     default:
