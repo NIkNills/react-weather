@@ -15,6 +15,8 @@ function Header() {
 
   const { days } = useSelector((state) => state.weather);
 
+  const setCurrentCity = (currentCity) => localStorage.setItem("currentCity", currentCity);
+
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days));
   }, [city, days]);
@@ -22,7 +24,10 @@ function Header() {
   const handleSearchCity = (e) => {
     if (e.keyCode === 13) {
       setCity(e.target.value);
+      setCurrentCity(e.target.value);
       e.target.value = "";
+
+      // localStorage.getItem('currentCity')
     }
   };
 
