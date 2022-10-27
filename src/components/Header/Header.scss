@@ -12,8 +12,10 @@
 }
 
 .header-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 h1 {

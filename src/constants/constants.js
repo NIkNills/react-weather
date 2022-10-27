@@ -22,3 +22,16 @@ export const months = [
   "November",
   "December",
 ];
+
+export const languages = [
+  {
+    code: 'en',
+    country_code: 'gb',
+    name: 'English'
+  },
+  {
+    code: 'ru',
+    country_code: 'ru',
+    name: 'Русский'
+  },
+]

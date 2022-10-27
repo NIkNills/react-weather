@@ -1,0 +1,25 @@
+.lang {
+  cursor: pointer;
+
+  &-select {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    background: rgba(71, 147, 255, 0.2);
+    border-radius: 10px;
+    transition: all 0.3s;
+    text-align: center;
+
+    &__item {
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(71, 147, 255, 1);
+      }
+    }
+  }
+}

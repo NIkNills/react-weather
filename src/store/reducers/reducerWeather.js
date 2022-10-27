@@ -8,6 +8,8 @@ const initialState = {
   city: "mogilev",
   days: 7,
   popupArr: [],
+  lang: "en",
+  theme: 'light'
 };
 
 export const reducerWeather = (state = initialState, action) => {
@@ -20,8 +22,6 @@ export const reducerWeather = (state = initialState, action) => {
         weather: [],
         success: false,
         loading: true,
-        city: "mogilev",
-        days: 7,
       };
 
     case actionType.SET_WEATHER_SUCCESS:
@@ -30,8 +30,6 @@ export const reducerWeather = (state = initialState, action) => {
         weather: payload,
         success: true,
         loading: false,
-        city: "mogilev",
-        days: 7,
       };
 
     case actionType.SET_WEATHER_ERROR:
@@ -53,10 +51,16 @@ export const reducerWeather = (state = initialState, action) => {
         ),
       };
 
-      case actionType.SET_POPUP_CLEAR:
+    case actionType.SET_POPUP_CLEAR:
       return {
         ...state,
         popupArr: [],
+      };
+
+    case actionType.SET_LANG:
+      return {
+        ...state,
+        lang: (state.lang = payload),
       };
 
     default:

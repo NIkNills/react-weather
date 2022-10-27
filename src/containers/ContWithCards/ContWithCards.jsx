@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionWeather } from "../../store/actions/actionWeather";
 import { dayWeek, months } from "../../constants/constants";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { useTranslation } from "react-i18next";
 
 import WeatherCards from "../../components/WeatherCards/WeatherCards";
 import CardSkeleton from "../../components/CardSkeleton";
@@ -11,21 +12,23 @@ import CardsPopup from "../../components/CardsPopup";
 import "./ContWithCards.scss";
 
 function ContWithCards() {
+  const { t } = useTranslation();
+
   const [popup, setPopup] = useState(false);
 
   const dispatch = useDispatch();
 
-  const { weather, success, loading, city, days } = useSelector(
+  const { weather, success, loading, city, days, lang } = useSelector(
     (state) => state.weather
   );
 
   useEffect(() => {
-    dispatch(actionWeather.getWeather(city, days));
-  }, [city, days]);
+    dispatch(actionWeather.getWeather(city, days, lang));
+  }, [city, days, lang]);
 
   const handlePopup = (idx) => () => {
     setPopup(!popup);
-    dispatch(actionWeather.addPopup(weather.find((_, i) => i === idx)));
+    dispatch(actionWeather.addPopup(weather.list.find((_, i) => i === idx)));
     disableBodyScroll(document.body);
   };
 
@@ -46,7 +49,7 @@ function ContWithCards() {
               return <CardSkeleton key={idx} />;
             })
           : success &&
-            weather.map((i, idx) => {
+            weather.list.map((i, idx) => {
               const date = new Date(i.dt * 1000);
 
               return (
@@ -55,14 +58,14 @@ function ContWithCards() {
                     onClick={handlePopup(idx)}
                     day={
                       idx === 0
-                        ? "Today"
+                        ? `${t("Today")}`
                         : idx === 1
-                        ? "Tomorrow"
-                        : dayWeek[date.getDay()].slice(0, 3)
+                        ? `${t("Tomorrow")}`
+                        : `${t(dayWeek[date.getDay()])}`
                     }
                     date={`
                 ${date.getDate()}
-                ${months[date.getMonth()].slice(0, 3)}
+                ${t(months[date.getMonth()])}
               `}
                     icon={i.weather[0].icon}
                     main={i.weather.main}
