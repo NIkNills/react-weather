@@ -62,6 +62,12 @@ export const reducerWeather = (state = initialState, action) => {
         lang: (state.lang = payload),
       };
 
+    case actionType.SET_DAYS:
+      return {
+        ...state,
+        days: (state.days = payload),
+      };
+
     default:
       return state;
   }

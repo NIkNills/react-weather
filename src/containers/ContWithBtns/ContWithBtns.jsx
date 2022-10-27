@@ -10,9 +10,9 @@ import "./ContWithBtns.scss";
 function ContWithBtns() {
   const { t } = useTranslation();
 
-  const [days, setDays] = useState(7);
+  // const [days, setDays] = useState(7);
 
-  const { city, lang } = useSelector(
+  const { city, days, lang } = useSelector(
     (state) => state.weather
   );
 
@@ -20,18 +20,19 @@ function ContWithBtns() {
 
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days, lang));
+    dispatch(actionWeather.setDays(days));
   }, [dispatch, city, days, lang]);
 
   const handleSevenDays = () => {
-    setDays(7);
+    dispatch(actionWeather.setDays(7))
   };
 
   const handleThirtyDays = () => {
-    setDays(30);
+    dispatch(actionWeather.setDays(30))
   };
 
   const handleTenDays = () => {
-    setDays(10);
+    dispatch(actionWeather.setDays(10))
   };
 
   return (

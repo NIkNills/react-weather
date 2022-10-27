@@ -11,6 +11,8 @@ export const actionType = {
   SET_POPUP_CLEAR: "SET_POPUP_CLEAR",
 
   SET_LANG: "SET_LANG",
+  
+  SET_DAYS: "SET_DAYS",
 };
 
 export const actionWeather = {
@@ -41,4 +43,6 @@ export const actionWeather = {
   clearPopup: (payload) => ({ type: actionType.SET_POPUP_CLEAR, payload }),
 
   setLang: (payload) => ({ type: actionType.SET_LANG, payload }),
+  
+  setDays: (payload) => ({ type: actionType.SET_DAYS, payload }),
 };
