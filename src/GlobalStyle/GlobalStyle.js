@@ -30,4 +30,9 @@ export const GlobalStyle = createGlobalStyle`
   .weather-card {
     background: ${({ theme }) => theme.cards};
   }
+
+  .btn {
+    background: ${({ theme }) => theme.bg};
+    color: ${({ theme }) => theme.text};
+  }
 `;
