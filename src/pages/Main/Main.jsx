@@ -1,7 +1,7 @@
 import React from "react";
-import ContWithBtns from "../../containers/ContWithBtns/ContWithBtns";
-import ContWithCards from "../../containers/ContWithCards/ContWithCards";
-import ContWithTodayCard from "../../containers/ContWithTodayCard/ContWithTodayCard";
+import ContWithBtns from "../../containers/ContWithBtns";
+import ContWithCards from "../../containers/ContWithCards";
+import ContWithTodayCard from "../../containers/ContWithTodayCard";
 
 import "./Main.scss";
 

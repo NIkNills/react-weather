@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionWeather } from "../../store/actions/actionWeather";
 import { useTranslation } from "react-i18next";
@@ -21,7 +21,7 @@ function ContWithTodayCard() {
 
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days, lang));
-  }, [city, days, lang]);
+  }, [dispatch, city, days, lang]);
 
   return (
     <div className="today-cart-container">

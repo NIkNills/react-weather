@@ -24,7 +24,7 @@ function ContWithCards() {
 
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days, lang));
-  }, [city, days, lang]);
+  }, [dispatch, city, days, lang]);
 
   const handlePopup = (idx) => () => {
     setPopup(!popup);

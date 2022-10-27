@@ -9,7 +9,6 @@ const initialState = {
   days: 7,
   popupArr: [],
   lang: "en",
-  theme: 'light'
 };
 
 export const reducerWeather = (state = initialState, action) => {

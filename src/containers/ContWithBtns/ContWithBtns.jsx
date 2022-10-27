@@ -12,7 +12,7 @@ function ContWithBtns() {
 
   const [days, setDays] = useState(7);
 
-  const { weather, success, loading, city, lang } = useSelector(
+  const { city, lang } = useSelector(
     (state) => state.weather
   );
 
@@ -20,7 +20,7 @@ function ContWithBtns() {
 
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days, lang));
-  }, [city, days, lang]);
+  }, [dispatch, city, days, lang]);
 
   const handleSevenDays = () => {
     setDays(7);

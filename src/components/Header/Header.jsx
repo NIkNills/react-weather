@@ -9,33 +9,22 @@ import Logo from "../../assets/logo.svg";
 import "./Header.scss";
 import LanguageSwitch from "../LanguageSwitch";
 
-function Header() {
+function Header({ onClick, checked }) {
   const [city, setCity] = useState("mogilev");
 
   const dispatch = useDispatch();
 
   const { days, lang, theme } = useSelector((state) => state.weather);
 
-  // const setCurrentCity = (currentCity) =>
-  //   localStorage.setItem("currentCity", currentCity);
-
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days, lang, theme));
-  }, [city, days, lang, theme]);
+  }, [dispatch, city, days, lang, theme]);
 
   const handleSearchCity = (e) => {
     if (e.keyCode === 13) {
       setCity(e.target.value);
-      // setCurrentCity(e.target.value);
-      // e.target.value = "";
-
-      // localStorage.getItem('currentCity')
     }
   };
-
-  const themeToggler = (e) => {
-    console.log(theme)
-  }
 
   return (
     <>
@@ -45,7 +34,7 @@ function Header() {
           <h1>React Weather</h1>
         </div>
         <div className="header-wrapper">
-          <ThemeSwitch onClick={themeToggler}/>
+          <ThemeSwitch onClick={onClick} checked={checked}/>
           <SearchCity onKeyUp={handleSearchCity} />
           <LanguageSwitch />
         </div>

@@ -53,12 +53,12 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-function ThemeSwitch({ onClick }) {
+function ThemeSwitch({ onClick, checked }) {
   return (
     <FormGroup className="theme-switch">
       <FormControlLabel
         onClick={onClick}
-        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+        control={<MaterialUISwitch sx={{ m: 1 }} checked={checked} />}
       />
     </FormGroup>
   );
