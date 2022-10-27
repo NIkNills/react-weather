@@ -1,26 +1,26 @@
 import React from "react";
+import { Card, Day, Info, Temperature, City } from "./style";
 
 import Clock from "../Clock";
 
-import "./TodayWeatherCard.scss";
-
 function TodayWeatherCard({ temp, day, icon, main, city }) {
   return (
-    <div className="today-weather-card">
-      <div className="today-info">
+    <Card className="theme">
+      <Info>
         <div>
-          <p className="today__temp">{temp}&deg;</p>
-          <p className="today__day">{day}</p>
+          <Temperature>{temp}&deg;</Temperature>
+          <Day>{day}</Day>
         </div>
         <img
           src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
           width={120}
           alt={main}
         />
-      </div>
+      </Info>
+
       <Clock />
-      <p className="today__city-name">{city}</p>
-    </div>
+      <City>{city}</City>
+    </Card>
   );
 }
 

@@ -4,12 +4,11 @@ import { actionWeather } from "../../store/actions/actionWeather";
 import { dayWeek, months } from "../../constants/constants";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { useTranslation } from "react-i18next";
+import { Container } from "./style";
 
 import WeatherCards from "../../components/WeatherCards";
 import CardSkeleton from "../../components/CardSkeleton";
 import CardsPopup from "../../components/CardsPopup";
-
-import "./ContWithCards.scss";
 
 function ContWithCards() {
   const { t } = useTranslation();
@@ -41,8 +40,7 @@ function ContWithCards() {
   };
 
   return (
-    <>
-      <div className="cards-container">
+      <Container className="theme">
         {popup && <CardsPopup onClick={handleClosePopup} />}
         {loading
           ? [...new Array(7)].map((_, idx) => {
@@ -76,8 +74,7 @@ function ContWithCards() {
                 </div>
               );
             })}
-      </div>
-    </>
+      </Container>
   );
 }
 

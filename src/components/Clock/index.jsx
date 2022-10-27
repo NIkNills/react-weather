@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
-import "./Clock.scss";
+import { Time } from "./style";
 
 function Clock() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -16,7 +15,7 @@ function Clock() {
     };
   }, [time]);
 
-  return <div className="clock">{time.slice(0, 5)}</div>;
+  return <Time>{time.slice(0, 5)}</Time>;
 }
 
 export default Clock;

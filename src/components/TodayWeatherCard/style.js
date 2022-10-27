@@ -1,4 +1,6 @@
-.today-weather-card {
+import styled from "styled-components";
+
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -7,35 +9,29 @@
   padding: 20px;
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   border-radius: 20px;
-}
+`;
 
-.today-info {
+export const Info = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+`;
 
-.today__temp {
-  font-family: "Montserrat";
-  font-style: normal;
+export const Temperature = styled.p`
   font-weight: 500;
   font-size: 60px;
   color: #4793ff;
-}
+`;
 
-.today__day {
-  font-family: "Montserrat";
-  font-style: normal;
+export const Day = styled.p`
   font-weight: 400;
   font-size: 40px;
   line-height: 49px;
-}
+`;
 
-.today__city-name {
-  font-family: "Montserrat";
-  font-style: normal;
+export const City = styled.p`
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
   color: #939cb0;
-}
+`;

@@ -1,6 +1,5 @@
 import React from "react";
-
-import "./WeatherCards.scss";
+import { Card, Date, Day, Description, TemperatureMax, TemperatureMin } from "./style";
 
 function WeatherCards({
   day,
@@ -13,18 +12,18 @@ function WeatherCards({
   onClick,
 }) {
   return (
-    <div className="weather-card" onClick={onClick}>
-      <p className="weather-card__day">{day}</p>
-      <p className="weather-card__date">{date}</p>
+    <Card className="cards-theme" onClick={onClick}>
+      <Day>{day}</Day>
+      <Date>{date}</Date>
       <img
         src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
         width={60}
         alt={main}
       />
-      <p className="weather-card__temp-max">{Math.round(temp_max)}&deg;</p>
-      <p className="weather-card__temp-min">{Math.round(temp_min)}&deg;</p>
-      <p className="weather-card__description">{description}</p>
-    </div>
+      <TemperatureMax>{Math.round(temp_max)}&deg;</TemperatureMax>
+      <TemperatureMin>{Math.round(temp_min)}&deg;</TemperatureMin>
+      <Description>{description}</Description>
+    </Card>
   );
 }
 

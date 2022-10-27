@@ -1,18 +1,17 @@
 import React from "react";
+import { Container } from "./style";
 
 import ContWithBtns from "../../containers/ContWithBtns";
 import ContWithCards from "../../containers/ContWithCards";
 import ContWithTodayCard from "../../containers/ContWithTodayCard";
 
-import "./Main.scss";
-
 function Main() {
   return (
-    <div className="container main-container">
+    <Container>
       <ContWithTodayCard />
       <ContWithBtns />
       <ContWithCards />
-    </div>
+    </Container>
   );
 }
 

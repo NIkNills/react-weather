@@ -1,5 +1,3 @@
-import { LocalLaundryService } from "@mui/icons-material";
-
 export const lightTheme = {
   body: "#FFFFFF",
   text: "#000000",
@@ -11,5 +9,5 @@ export const darkTheme = {
   text: "#FFFFFF",
   background: "#4F4F4F",
   bg: "#4F4F4F",
-  cards: '#2E3035',
+  cards: "#2E3035",
 };

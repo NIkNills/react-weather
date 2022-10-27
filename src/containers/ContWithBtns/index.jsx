@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionWeather } from "../../store/actions/actionWeather";
 import { useTranslation } from "react-i18next";
+import { Buttons } from "./style";
 
 import Button from "../../components/Button";
-
-import "./ContWithBtns.scss";
 
 function ContWithBtns() {
   const { t } = useTranslation();
@@ -32,11 +31,11 @@ function ContWithBtns() {
   };
 
   return (
-    <div className="btns-bar">
+    <Buttons>
       <Button onClick={handleSevenDays} text={t("Btn_week")} />
       <Button onClick={handleThirtyDays} text={t("Btn_month")} />
       <Button onClick={handleTenDays} text={t("Btn_10_days")} />
-    </div>
+    </Buttons>
   );
 }
 

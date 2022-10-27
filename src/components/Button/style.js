@@ -1,4 +1,6 @@
-.btn {
+import styled from "styled-components";
+
+export const Btn = styled.button`
   height: 35px;
   padding: 0 20px;
   background: #ffffff;
@@ -6,19 +8,14 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
-
+  color: #000000;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 22px;
-  color: #000000;
-
-  .btn_active {
-    background: #4793ff;
-  }
 
   &:hover {
     background: #8abaff;
   }
-}
+`;

@@ -1,21 +1,29 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+    font-style: normal;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
   }
 
-  .cards-container {
-    background: ${({ theme }) => theme.bg};
-  }
-
-  .today-weather-card {
-    background: ${({ theme }) => theme.bg};
-  }
-
-  .description {
+  .theme {
     background-color: ${({ theme }) => theme.bg};
+  }
+
+  .cards-theme {
+    background-color: ${({ theme }) => theme.cards};
   }
 
   .search-city__input {
@@ -23,12 +31,8 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.text};
   }
 
-  .css-137ul40-MuiButtonBase-root-MuiIconButton-root {
+  .lang-icon {
     color: ${({ theme }) => theme.text};
-  }
-
-  .weather-card {
-    background: ${({ theme }) => theme.cards};
   }
 
   .btn {

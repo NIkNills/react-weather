@@ -40,7 +40,7 @@ function LanguageSwitch() {
     <>
       <Tooltip title={t("language")} arrow>
         <IconButton onClick={handleOpen} size="small" sx={{ ml: 2 }}>
-          <LanguageIcon style={{ width: "32px", height: "32px" }} />
+          <LanguageIcon className="lang-icon" style={{ width: "32px", height: "32px" }} />
         </IconButton>
       </Tooltip>
       <Menu

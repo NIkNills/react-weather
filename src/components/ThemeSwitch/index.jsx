@@ -4,8 +4,6 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 
-import "./ThemeSwitch.scss";
-
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
@@ -55,7 +53,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 function ThemeSwitch({ onClick, checked }) {
   return (
-    <FormGroup className="theme-switch">
+    <FormGroup>
       <FormControlLabel
         onClick={onClick}
         control={<MaterialUISwitch sx={{ m: 1 }} checked={checked} />}

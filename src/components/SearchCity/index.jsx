@@ -1,19 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-
-import "./SearchCity.scss";
+import { Search } from "./style";
 
 function SearchCity({ onKeyUp }) {
   const { t } = useTranslation();
 
   return (
     <>
-      <input
+      <Search
         onKeyUp={onKeyUp}
-        className="search-city__input"
         placeholder={t("Enter_city_name")}
         type="text"
-      />
+      ></Search>
     </>
   );
 }

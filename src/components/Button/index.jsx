@@ -1,12 +1,11 @@
 import React from "react";
-
-import "./Button.scss";
+import { Btn } from "./style";
 
 function Button({ text, onClick }) {
   return (
-    <button className="btn" onClick={onClick}>
+    <Btn className="btn" onClick={onClick}>
       {text}
-    </button>
+    </Btn>
   );
 }
 

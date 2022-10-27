@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionWeather } from "../../store/actions/actionWeather";
 import { useTranslation } from "react-i18next";
+import { Container } from "./style";
 
 import TodayWeatherCard from "../../components/TodayWeatherCard";
 import TodayWeatherCardDescription from "../../components/TodayWeatherCardDescription";
 import TodayCardSkeleton from "../../components/TodayCardSkeleton";
 import TodayDescriptionSkeleton from "../../components/TodayDescriptionSkeleton";
-
-import "./ContWithTodayCard.scss";
 
 function ContWithTodayCard() {
   const { t } = useTranslation();
@@ -24,7 +23,7 @@ function ContWithTodayCard() {
   }, [dispatch, city, days, lang]);
 
   return (
-    <div className="today-cart-container">
+    <Container>
       {loading ? (
         <TodayCardSkeleton />
       ) : (
@@ -55,7 +54,7 @@ function ContWithTodayCard() {
           />
         )
       )}
-    </div>
+    </Container>
   );
 }
 
