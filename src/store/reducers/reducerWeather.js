@@ -68,6 +68,12 @@ export const reducerWeather = (state = initialState, action) => {
         days: (state.days = payload),
       };
 
+    case actionType.SET_CITY:
+      return {
+        ...state,
+        city: (state.city = payload),
+      };
+
     default:
       return state;
   }

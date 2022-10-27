@@ -10,19 +10,18 @@ import "./Header.scss";
 import LanguageSwitch from "../LanguageSwitch";
 
 function Header({ onClick, checked }) {
-  const [city, setCity] = useState("mogilev");
-
   const dispatch = useDispatch();
 
-  const { days, lang, theme } = useSelector((state) => state.weather);
+  const { city, days, lang, theme } = useSelector((state) => state.weather);
 
   useEffect(() => {
     dispatch(actionWeather.getWeather(city, days, lang, theme));
+    dispatch(actionWeather.setCity(city));
   }, [dispatch, city, days, lang, theme]);
 
   const handleSearchCity = (e) => {
     if (e.keyCode === 13) {
-      setCity(e.target.value);
+      dispatch(actionWeather.setCity(e.target.value))
     }
   };
 

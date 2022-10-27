@@ -13,6 +13,8 @@ export const actionType = {
   SET_LANG: "SET_LANG",
   
   SET_DAYS: "SET_DAYS",
+  
+  SET_CITY: "SET_CITY",
 };
 
 export const actionWeather = {
@@ -45,4 +47,6 @@ export const actionWeather = {
   setLang: (payload) => ({ type: actionType.SET_LANG, payload }),
   
   setDays: (payload) => ({ type: actionType.SET_DAYS, payload }),
+
+  setCity: (payload) => ({ type: actionType.SET_CITY, payload }),
 };
