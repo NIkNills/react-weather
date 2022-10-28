@@ -7,7 +7,7 @@ function SearchCity({ onKeyUp }) {
 
   return (
     <>
-      <Search
+      <Search className="search"
         onKeyUp={onKeyUp}
         placeholder={t("Enter_city_name")}
         type="text"

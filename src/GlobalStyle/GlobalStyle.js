@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.cards};
   }
 
-  .search-city__input {
+  .search {
     background-color: ${({ theme }) => theme.bg};
     color: ${({ theme }) => theme.text};
   }
