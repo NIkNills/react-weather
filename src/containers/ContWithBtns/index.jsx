@@ -18,7 +18,7 @@ function ContWithBtns() {
     dispatch(actionWeather.setDays(days));
   }, [dispatch, city, days, lang]);
 
-  const handleSevenDays = () => {
+  const handleSevenDays = (e) => {
     dispatch(actionWeather.setDays(7));
   };
 
@@ -32,9 +32,9 @@ function ContWithBtns() {
 
   return (
     <Buttons>
-      <Button onClick={handleSevenDays} text={t("Btn_week")} />
-      <Button onClick={handleThirtyDays} text={t("Btn_month")} />
-      <Button onClick={handleTenDays} text={t("Btn_10_days")} />
+      <Button onClick={handleSevenDays} text={t("Btn_week")} value={7}/>
+      <Button onClick={handleThirtyDays} text={t("Btn_month")} value={30} />
+      <Button onClick={handleTenDays} text={t("Btn_10_days")} value={10}/>
     </Buttons>
   );
 }

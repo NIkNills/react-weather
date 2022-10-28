@@ -1,11 +1,23 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Btn } from "./style";
 
-function Button({ text, onClick }) {
+function Button({ text, onClick, value }) {
+
+  const { days } = useSelector((state) => state.weather);
+
   return (
-    <Btn className="btn" onClick={onClick}>
-      {text}
-    </Btn>
+    <>
+      {days === value ? (
+        <Btn isSelected className="btn" onClick={onClick} value={value}>
+          {text}
+        </Btn>
+      ) : (
+        <Btn className="btn" onClick={onClick} value={value}>
+          {text}
+        </Btn>
+      )}
+    </>
   );
 }
 
